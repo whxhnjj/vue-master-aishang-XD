@@ -8,7 +8,7 @@
 ## 赞赏
 请作者喝杯咖啡吧！
 
-![微信扫一扫](http://blog.gdfengshuo.com/images/weixin.jpg)
+![微信扫一扫](http://images.cnblogs.com/cnblogs_com/whxhn/1326811/o_%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190319112309.jpg)
 
 ## 前言 ##
 之前在公司用了Vue + Element组件库做了个后台管理系统，基本很多组件可以直接引用组件库的，但是也有一些需求无法满足。像图片裁剪上传、富文本编辑器、图表等这些在后台管理系统中很常见的功能，就需要引用其他的组件才能完成。从寻找组件，到使用组件的过程中，遇到了很多问题，也积累了宝贵的经验。所以我就把开发这个后台管理系统的经验，总结成这个后台管理系统解决方案。
@@ -54,7 +54,7 @@
 ## 组件使用说明与演示 ##
 
 ### vue-schart ###
-vue.js封装sChart.js的图表组件。访问地址：[vue-schart](https://github.com/linxin/vue-schart)
+vue.js封装EChart.js的图表组件。访问地址：[vue-Echart]
 <p><a href="https://www.npmjs.com/package/vue-schart"><img src="https://img.shields.io/npm/dm/vue-schart.svg" alt="Downloads"></a></p>
 
 ```html
@@ -99,7 +99,24 @@ vue.js封装sChart.js的图表组件。访问地址：[vue-schart](https://githu
 }
 </style>
 ```
+### 修改添加页面标题与icon ###
+```html
+在mani.js添加
+import VueWechatTitle from 'vue-wechat-title'
+Vue.use(VueWechatTitle)
 
+在APP.vue文件中添加这一句
+ <router-view v-wechat-title="$route.meta.title"></router-view>
+ 
+ 路由文件中 添加上
+  {
+     path: '/dashboard',
+     component: resolve => require(['../components/page/Home/Dashboard.vue'], resolve),
+    meta: {
+         title: '系统首页' //修改单页面标题
+     }
+   },
+```
 ### element-ui ###
 一套基于vue.js2.0的桌面组件库。访问地址：[element](http://element.eleme.io/#/zh-CN/component/layout)
 
